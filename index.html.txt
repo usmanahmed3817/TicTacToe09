@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Futuristic Tic-Tac-Toe</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Google AdMob SDK -->
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9474678817392803" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container-fluid game-container">
+        <div class="row justify-content-center">
+            <div class="col-md-8 col-lg-6">
+                <div class="game-panel">
+                    <div class="game-header text-center">
+                        <h1 class="game-title">
+                            <span class="title-t">T</span>ic-
+                            <span class="title-t">T</span>ac-
+                            <span class="title-t">T</span>oe
+                        </h1>
+                        
+                        <!-- Game mode selection -->
+                        <div class="mode-selection">
+                            <button id="one-player-btn" class="mode-btn">
+                                <i class="fas fa-user"></i> One Player
+                            </button>
+                            <button id="two-player-btn" class="mode-btn">
+                                <i class="fas fa-user-friends"></i> Two Player
+                            </button>
+                        </div>
+                        
+                        <!-- Difficulty selection (visible in one-player mode) -->
+                        <div id="difficulty-selection" class="difficulty-selection">
+                            <button id="easy-btn" class="difficulty-btn">
+                                <i class="fas fa-baby"></i> Easy
+                            </button>
+                            <button id="medium-btn" class="difficulty-btn">
+                                <i class="fas fa-user"></i> Medium
+                            </button>
+                            <button id="hard-btn" class="difficulty-btn">
+                                <i class="fas fa-robot"></i> Hard
+                            </button>
+                        </div>
+                        
+                        <div id="status-message" class="game-status text-center"></div>
+                    </div>
+                    
+                    <div class="game-board">
+                        <div class="grid-row">
+                            <div class="grid-cell" data-index="0"></div>
+                            <div class="grid-cell" data-index="1"></div>
+                            <div class="grid-cell" data-index="2"></div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="grid-cell" data-index="3"></div>
+                            <div class="grid-cell" data-index="4"></div>
+                            <div class="grid-cell" data-index="5"></div>
+                        </div>
+                        <div class="grid-row">
+                            <div class="grid-cell" data-index="6"></div>
+                            <div class="grid-cell" data-index="7"></div>
+                            <div class="grid-cell" data-index="8"></div>
+                        </div>
+                    </div>
+                    
+                    <div class="game-controls">
+                        <button id="pause-btn" class="control-btn pause-btn">
+                            <i class="fas fa-pause"></i> Pause
+                        </button>
+                        <button id="resume-btn" class="control-btn resume-btn" disabled>
+                            <i class="fas fa-play"></i> Resume
+                        </button>
+                        <button id="reset-btn" class="control-btn reset-btn">
+                            <i class="fas fa-sync-alt"></i> Reset
+                        </button>
+                    </div>
+                    
+                    <div class="music-controls">
+                        <label for="music-volume">
+                            <i class="fas fa-music"></i> Music Volume
+                        </label>
+                        <input type="range" id="music-volume" min="0" max="100" value="30">
+                    </div>
+                    
+                    <!-- Banner Ad Container -->
+                    <div class="ad-container">
+                        <ins class="adsbygoogle"
+                             style="display:block"
+                             data-ad-client="ca-pub-9474678817392803"
+                             data-ad-slot="4707470539"
+                             data-ad-format="auto"
+                             data-full-width-responsive="true"></ins>
+                    </div>
+                </div>
+                
+                <!-- Game pause overlay -->
+                <div id="game-pause-overlay" class="game-pause-overlay d-none">
+                    <div class="pause-message">
+                        <h2>GAME PAUSED</h2>
+                        <p>Click resume to continue playing</p>
+                    </div>
+                </div>
+                
+                <!-- Win animation overlay -->
+                <div id="win-overlay" class="win-overlay d-none">
+                    <div class="win-message">
+                        <h2 id="win-text">PLAYER X WINS!</h2>
+                        <div class="fireworks">
+                            <div class="firework"></div>
+                            <div class="firework"></div>
+                            <div class="firework"></div>
+                        </div>
+                        <button id="new-game-btn" class="control-btn new-game-btn">
+                            <i class="fas fa-gamepad"></i> New Game
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Tone.js for audio feedback -->
+    <script src="https://unpkg.com/tone@14.7.77/build/Tone.js"></script>
+    
+    <!-- Bootstrap JS Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom Game JS -->
+    <script src="js/game.js"></script>
+</body>
+</html>
